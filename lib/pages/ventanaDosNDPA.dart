@@ -1,3 +1,4 @@
+import 'package:examen_01_ti_paola_nunez/pages/ventanaTresNDPA.dart';
 import 'package:flutter/material.dart';
 
 class VentanaDosNDPA extends StatefulWidget {
@@ -8,7 +9,9 @@ class VentanaDosNDPA extends StatefulWidget {
 }
 
 class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
-  
+  final TextEditingController nombresControllerNDPA = TextEditingController();
+final TextEditingController apellidosControllerNDPA= TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,7 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: true,
+                    controller: nombresControllerNDPA,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Nombre',
@@ -47,6 +51,7 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: true,
+                    controller: apellidosControllerNDPA,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Apellido',
@@ -97,44 +102,6 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
             Row(
               children: [
                 const Text(
-                  'Parte Entera:',
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: TextField(
-                    enabled: false,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Parte Entera',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                const Text(
-                  'Residuo:',
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: TextField(
-                    enabled: false,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Residuo',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 45),
-            Row(
-              children: [
-                const Text(
                   'Numero Invertido:',
                   style: TextStyle(fontSize: 20),
                 ),
@@ -164,7 +131,13 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(),),
+                    Navigator.push(
+                      context,MaterialPageRoute(
+                        builder: (context) => VentanaTresNDPA(
+                      nombresControllerNDPA: nombresControllerNDPA.text,
+                      apellidosControllerNDPA: apellidosControllerNDPA.text,
+
+                    ),),
                     );
                   },
                   child: const Text("Siguiente"),
