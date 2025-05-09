@@ -2,7 +2,10 @@ import 'package:examen_01_ti_paola_nunez/pages/ventanaTresNDPA.dart';
 import 'package:flutter/material.dart';
 
 class VentanaDosNDPA extends StatefulWidget {
-  const VentanaDosNDPA({super.key});
+  final String? dividendoNDPA;
+  final String? divisorNDPA;
+  final String? numeroInvertidoNDPA;
+  const VentanaDosNDPA({super.key,required this.dividendoNDPA,required this.divisorNDPA,required this.numeroInvertidoNDPA});
 
   @override
   State<VentanaDosNDPA> createState() => _VentanaDosNDPAState();
@@ -71,6 +74,7 @@ final TextEditingController apellidosControllerNDPA= TextEditingController();
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.dividendoNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Dividendo',
@@ -90,6 +94,7 @@ final TextEditingController apellidosControllerNDPA= TextEditingController();
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.divisorNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Divisor',
@@ -109,6 +114,7 @@ final TextEditingController apellidosControllerNDPA= TextEditingController();
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.numeroInvertidoNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Numero Invertido',

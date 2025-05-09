@@ -165,7 +165,11 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(),),
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(
+                      dividendoNDPA: '0',
+                      divisorNDPA: '0',
+                      numeroInvertidoNDPA: '0',
+                    ),),
                     );
                   },
                   child: const Text("Siguiente"),

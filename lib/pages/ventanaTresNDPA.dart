@@ -12,9 +12,9 @@ class VentanaTresNDPA extends StatefulWidget {
 
 class _VentanaDosNDPAState extends State<VentanaTresNDPA> {
   
-final TextEditingController DividendoControllerNDPA= TextEditingController();
-final TextEditingController DivisorControllerNDPA= TextEditingController();
-final TextEditingController NumeroInvertidoNDPA= TextEditingController();
+final TextEditingController dividendoControllerNDPA= TextEditingController();
+final TextEditingController divisorControllerNDPA= TextEditingController();
+final TextEditingController numeroInvertidoNDPA= TextEditingController();
 
 
 
@@ -22,7 +22,7 @@ final TextEditingController NumeroInvertidoNDPA= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(title: Text("VENTANA (DOS)")),
+       appBar: AppBar(title: Text("VENTANA (TRES)")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -77,7 +77,7 @@ final TextEditingController NumeroInvertidoNDPA= TextEditingController();
                 Expanded(
                   child: TextField(
                     enabled: true,
-                    controller: DividendoControllerNDPA,
+                    controller: dividendoControllerNDPA,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Dividendo',
@@ -97,7 +97,7 @@ final TextEditingController NumeroInvertidoNDPA= TextEditingController();
                 Expanded(
                   child: TextField(
                     enabled: true,
-                    controller: DivisorControllerNDPA,
+                    controller: divisorControllerNDPA,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Divisor',
@@ -117,7 +117,7 @@ final TextEditingController NumeroInvertidoNDPA= TextEditingController();
                 Expanded(
                   child: TextField(
                     enabled: true,
-                    controller: NumeroInvertidoNDPA,
+                    controller: numeroInvertidoNDPA,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Numero Invertido',
@@ -132,19 +132,25 @@ final TextEditingController NumeroInvertidoNDPA= TextEditingController();
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(),),
+                    Navigator.pop(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(
+            
+                      dividendoNDPA: dividendoControllerNDPA.text,
+                      divisorNDPA: divisorControllerNDPA.text,
+                      numeroInvertidoNDPA: numeroInvertidoNDPA.text,
+                    ),),
                     );
                   }, 
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,  
-                  ),
                   child: const Text("Mostrar Resultados"),
                 ),
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: null,
+                   style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey,  
+                  ),
                   child: const Text("Siguiente"),
                 ),
+                
               ],
             ),
           ],
