@@ -9,8 +9,166 @@ class VentanaUnoNDPA extends StatefulWidget {
 }
 
 class _VentanaUnoState extends State<VentanaUnoNDPA> {
+  final TextEditingController nombresNDPA = TextEditingController();
+  final TextEditingController apellidosNDPA = TextEditingController();
+  final TextEditingController dividendoNDPA = TextEditingController();
+  final TextEditingController divisorNDPA = TextEditingController();
+
+  String parteEnteraNDPA = "";
+  String residuoNDPA = "";
+  String numeroInvertidoNDPA = "";
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text("VENTANA (UNO)")),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const Text(
+                  'Nombre:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: nombresNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nombre',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Text(
+                  'Apellido:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: apellidosNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Apellido',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 45),
+            Row(
+              children: [
+                const Text(
+                  'Dividendo:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: dividendoNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Dividendo',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Text(
+                  'Divisor:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: divisorNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Divisor',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 45),
+            Row(
+              children: [
+                const Text(
+                  'Parte Entera:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: dividendoNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Parte Entera',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Text(
+                  'Residuo:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: divisorNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Divisor',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 45),
+            Row(
+              children: [
+                const Text(
+                  'Numero Invertido:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: dividendoNDPA,
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Numero Invertido',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
+

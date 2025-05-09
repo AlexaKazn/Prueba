@@ -1,4 +1,4 @@
-import 'package:examen_01_ti_paola_nunez/pages/ventanaUno.dart';
+import 'package:examen_01_ti_paola_nunez/pages/ventanaUnoNDPA.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ventana Uno',
-      home: VentanaUno(),
+      home: VentanaUnoNDPA(),
       debugShowCheckedModeBanner: false,
     );
   }
