@@ -2,7 +2,13 @@ import 'package:examen_01_ti_paola_nunez/pages/ventanaDosNDPA.dart';
 import 'package:flutter/material.dart';
 
 class VentanaUnoNDPA extends StatefulWidget {
-  const VentanaUnoNDPA({super.key});
+
+   final String? dividendoNDPA;
+  final String? divisorNDPA;
+  final String? numeroInvertidoNDPA;
+    final String? nombreNDPA;
+      final String? apellidoNDPA;
+  const VentanaUnoNDPA({super.key,this.dividendoNDPA,this.divisorNDPA,this.numeroInvertidoNDPA,this.nombreNDPA,this.apellidoNDPA});
 
   @override
   State<VentanaUnoNDPA> createState() => _VentanaUnoNDPAState();
@@ -29,6 +35,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.nombreNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Nombre',
@@ -48,6 +55,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.apellidoNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Apellido',
@@ -67,6 +75,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.dividendoNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Dividendo',
@@ -86,6 +95,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.divisorNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Divisor',
@@ -105,6 +115,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.dividendoNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Parte Entera',
@@ -124,6 +135,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.divisorNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Residuo',
@@ -143,6 +155,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                 Expanded(
                   child: TextField(
                     enabled: false,
+                    controller: TextEditingController(text: widget.numeroInvertidoNDPA),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Numero Invertido',
@@ -156,6 +169,12 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA()));
+                  },
+                  child: const Text("Siguiente"),
+                ),
+                ElevatedButton(
                   onPressed: null,  
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,  
@@ -163,17 +182,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                   child: const Text("Mostrar Resultados"),
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(
-                      dividendoNDPA: '0',
-                      divisorNDPA: '0',
-                      numeroInvertidoNDPA: '0',
-                    ),),
-                    );
-                  },
-                  child: const Text("Siguiente"),
-                ),
+                
               ],
             ),
           ],

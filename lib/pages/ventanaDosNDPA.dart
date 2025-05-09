@@ -1,11 +1,14 @@
 import 'package:examen_01_ti_paola_nunez/pages/ventanaTresNDPA.dart';
+import 'package:examen_01_ti_paola_nunez/pages/ventanaUnoNDPA.dart';
 import 'package:flutter/material.dart';
 
 class VentanaDosNDPA extends StatefulWidget {
+      final String? nombreNDPA;
+      final String? apellidoNDPA;
   final String? dividendoNDPA;
   final String? divisorNDPA;
   final String? numeroInvertidoNDPA;
-  const VentanaDosNDPA({super.key,required this.dividendoNDPA,required this.divisorNDPA,required this.numeroInvertidoNDPA});
+  const VentanaDosNDPA({super.key,this.dividendoNDPA,this.divisorNDPA,this.numeroInvertidoNDPA,this.nombreNDPA,this.apellidoNDPA});
 
   @override
   State<VentanaDosNDPA> createState() => _VentanaDosNDPAState();
@@ -115,6 +118,7 @@ final TextEditingController apellidosControllerNDPA= TextEditingController();
                   child: TextField(
                     enabled: false,
                     controller: TextEditingController(text: widget.numeroInvertidoNDPA),
+
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Numero Invertido',
@@ -128,14 +132,6 @@ final TextEditingController apellidosControllerNDPA= TextEditingController();
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: null,  
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,  
-                  ),
-                  child: const Text("Mostrar Resultados"),
-                ),
-                const SizedBox(height: 10),
-                ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,MaterialPageRoute(
@@ -148,6 +144,25 @@ final TextEditingController apellidosControllerNDPA= TextEditingController();
                   },
                   child: const Text("Siguiente"),
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(
+                      builder: (context) => VentanaUnoNDPA(
+                        nombreNDPA: nombresControllerNDPA.text,
+                        apellidoNDPA: apellidosControllerNDPA.text,
+                        dividendoNDPA: widget.dividendoNDPA,
+                        divisorNDPA: widget.divisorNDPA,
+                        numeroInvertidoNDPA: widget.numeroInvertidoNDPA,
+                      ),
+                    ));
+                  },  
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey,  
+                  ),
+                  child: const Text("Cerrar"),
+                ),
+                const SizedBox(height: 10),
+                
               ],
             ),
           ],

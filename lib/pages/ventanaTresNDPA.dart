@@ -22,7 +22,7 @@ final TextEditingController numeroInvertidoNDPA= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(title: Text("VENTANA (TRES)")),
+       appBar: AppBar(title: Text("VENTANA ()")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -132,7 +132,7 @@ final TextEditingController numeroInvertidoNDPA= TextEditingController();
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(
             
                       dividendoNDPA: dividendoControllerNDPA.text,
                       divisorNDPA: divisorControllerNDPA.text,
