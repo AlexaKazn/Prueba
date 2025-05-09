@@ -1,35 +1,179 @@
 import 'package:flutter/material.dart';
 
-class VentanaDosNDPA extends StatelessWidget {
-  final String nombresNDPA;
-  final String apellidosNDPA;
-  final String dividendoNDPA;
-  final String divisorNDPA;
+class VentanaDosNDPA extends StatefulWidget {
+  const VentanaDosNDPA({super.key});
 
-  const VentanaDosNDPA({
-    super.key,
+  @override
+  State<VentanaDosNDPA> createState() => _VentanaDosNDPAState();
+}
+
+class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
   
-  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Ventana Dos")),
-      body: Center(
+       appBar: AppBar(title: Text("VENTANA (DOS)")),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Nombre: $nombresNDPA"),
-            Text("Apellido: $apellidosNDPA"),
-            Text("Dividendo: $dividendoNDPA"),
-            Text("Divisor: $divisorNDPA"),
+            Row(
+              children: [
+                const Text(
+                  'Nombre:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: true,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nombre',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Text(
+                  'Apellido:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: true,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Apellido',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 45),
+            Row(
+              children: [
+                const Text(
+                  'Dividendo:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Dividendo',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Text(
+                  'Divisor:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Divisor',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 45),
+            Row(
+              children: [
+                const Text(
+                  'Parte Entera:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Parte Entera',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Text(
+                  'Residuo:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Residuo',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 45),
+            Row(
+              children: [
+                const Text(
+                  'Numero Invertido:',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Numero Invertido',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: null,  
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey,  
+                  ),
+                  child: const Text("Mostrar Resultados"),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(),),
+                    );
+                  },
+                  child: const Text("Siguiente"),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
