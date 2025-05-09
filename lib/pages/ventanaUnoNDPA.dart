@@ -1,14 +1,14 @@
+import 'package:examen_01_ti_paola_nunez/pages/ventanaDosNDPA.dart';
 import 'package:flutter/material.dart';
-
 
 class VentanaUnoNDPA extends StatefulWidget {
   const VentanaUnoNDPA({super.key});
 
   @override
-  State<VentanaUnoNDPA> createState() => _VentanaUnoState();
+  State<VentanaUnoNDPA> createState() => _VentanaUnoNDPAState();
 }
 
-class _VentanaUnoState extends State<VentanaUnoNDPA> {
+class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
   final TextEditingController nombresNDPA = TextEditingController();
   final TextEditingController apellidosNDPA = TextEditingController();
   final TextEditingController dividendoNDPA = TextEditingController();
@@ -115,7 +115,6 @@ class _VentanaUnoState extends State<VentanaUnoNDPA> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
-                    controller: dividendoNDPA,
                     enabled: false,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -135,11 +134,10 @@ class _VentanaUnoState extends State<VentanaUnoNDPA> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
-                    controller: divisorNDPA,
                     enabled: false,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Divisor',
+                      labelText: 'Residuo',
                     ),
                   ),
                 ),
@@ -155,7 +153,6 @@ class _VentanaUnoState extends State<VentanaUnoNDPA> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
-                    controller: dividendoNDPA,
                     enabled: false,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -165,10 +162,33 @@ class _VentanaUnoState extends State<VentanaUnoNDPA> {
                 ),
               ],
             ),
+            const SizedBox(height: 30),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Mostrar Resultados"),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VentanaDosNDPA(
+                          
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text("Siguiente"),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 }
-
