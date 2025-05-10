@@ -48,15 +48,88 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildEditableField("Nombre:", nombresControllerNDPA),
+            Row(
+              children: [
+                const Text("Nombre:", style: TextStyle(fontSize: 20)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: nombresControllerNDPA,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Nombre",
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 10),
-            _buildEditableField("Apellido:", apellidosControllerNDPA),
+            Row(
+              children: [
+                const Text("Apellido:", style: TextStyle(fontSize: 20)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: apellidosControllerNDPA,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Apellido",
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 45),
-            _buildReadOnlyField("Dividendo:", dividendoNDPA),
+            Row(
+              children: [
+                const Text("Dividendo:", style: TextStyle(fontSize: 20)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    controller: TextEditingController(text: dividendoNDPA ?? ''),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "",
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 10),
-            _buildReadOnlyField("Divisor:", divisorNDPA),
+            Row(
+              children: [
+                const Text("Divisor:", style: TextStyle(fontSize: 20)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    controller: TextEditingController(text: divisorNDPA ?? ''),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "",
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 45),
-            _buildReadOnlyField("Número Invertido:", numeroInvertidoNDPA),
+            Row(
+              children: [
+                const Text("Número Invertido:", style: TextStyle(fontSize: 20)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    enabled: false,
+                    controller: TextEditingController(text: numeroInvertidoNDPA ?? ''),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "",
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () async {
@@ -79,7 +152,6 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
                 }
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-
               child: const Text("Siguiente"),
             ),
             const SizedBox(height: 10),
@@ -101,43 +173,6 @@ class _VentanaDosNDPAState extends State<VentanaDosNDPA> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildEditableField(String label, TextEditingController controller) {
-    return Row(
-      children: [
-        Text(label, style: const TextStyle(fontSize: 20)),
-        const SizedBox(width: 10),
-        Expanded(
-          child: TextField(
-            controller: controller,
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              labelText: label.replaceAll(":", ""),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildReadOnlyField(String label, String? value) {
-    return Row(
-      children: [
-        Text(label, style: const TextStyle(fontSize: 20)),
-        const SizedBox(width: 10),
-        Expanded(
-          child: TextField(
-            enabled: false,
-            controller: TextEditingController(text: value ?? ''),
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              labelText: label.replaceAll(":", ""),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
