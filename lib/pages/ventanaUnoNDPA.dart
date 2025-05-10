@@ -20,7 +20,7 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("VENTANA (UNO)")),
+      appBar: AppBar(title: Text("VENTANA UNO")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -172,12 +172,15 @@ class _VentanaUnoNDPAState extends State<VentanaUnoNDPA> {
                   onPressed: () {
                     Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA()));
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,  
+                  ),
                   child: const Text("Siguiente"),
                 ),
                 ElevatedButton(
                   onPressed: null,  
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,  
+                    backgroundColor: Colors.yellow,  
                   ),
                   child: const Text("Mostrar Resultados"),
                 ),

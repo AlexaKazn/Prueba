@@ -1,4 +1,3 @@
-import 'package:examen_01_ti_paola_nunez/pages/ventanaDosNDPA.dart';
 import 'package:flutter/material.dart';
 
 class VentanaTresNDPA extends StatefulWidget {
@@ -22,7 +21,7 @@ final TextEditingController numeroInvertidoNDPA= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(title: Text("VENTANA ()")),
+       appBar: AppBar(title: Text("VENTANA TRES")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -130,27 +129,20 @@ final TextEditingController numeroInvertidoNDPA= TextEditingController();
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => VentanaDosNDPA(
-            
-                      dividendoNDPA: dividendoControllerNDPA.text,
-                      divisorNDPA: divisorControllerNDPA.text,
-                      numeroInvertidoNDPA: numeroInvertidoNDPA.text,
-                    ),),
-                    );
-                  }, 
-                  child: const Text("Mostrar Resultados"),
-                ),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: null,
-                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,  
-                  ),
-                  child: const Text("Siguiente"),
-                ),
-                
+                  ElevatedButton(
+                    onPressed: () {
+                         Navigator.pop(context, {
+                                  'nombreNDPA': widget.nombresControllerNDPA,
+                                  'apellidoNDPA': widget.apellidosControllerNDPA,
+                                  'dividendoNDPA': dividendoControllerNDPA.text,
+                                  'divisorNDPA': divisorControllerNDPA.text,
+                                 'numeroInvertidoNDPA': numeroInvertidoNDPA.text,
+                         });
+              },
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+
+               child: const Text("Cerrar"),
+              ),    
               ],
             ),
           ],
